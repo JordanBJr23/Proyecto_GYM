@@ -1,5 +1,9 @@
 package modelo;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class cls_funciones {
@@ -93,7 +97,7 @@ public class cls_funciones {
                     + "\nSexo Cliente: " + bdClientes[v].getSexo()
                     + "\nEdad Cliente: " + bdClientes[v].getEdad()
                     + "\nTipo de Pase: " + bdClientes[v].getTipoDePase()
-                    + "\nCantidad de Pago: " + bdClientes[v].getPago()+" colones");
+                    + "\nCantidad de Pago: " + bdClientes[v].getPago() + " colones");
         } else if (pase.equals("Max")) {
             JOptionPane.showMessageDialog(null, "Nombre Cliente: " + bdClientes[v].getNombreC()
                     + "\nIdentificacion Cliente: " + bdClientes[v].getIdentificacion()
@@ -101,7 +105,7 @@ public class cls_funciones {
                     + "\nSexo Cliente: " + bdClientes[v].getSexo()
                     + "\nEdad Cliente: " + bdClientes[v].getEdad()
                     + "\nTipo de Pase: " + bdClientes[v].getTipoDePase()
-                    + "\nCantidad de Pago: " + bdClientes[v].getPago()+" colones"
+                    + "\nCantidad de Pago: " + bdClientes[v].getPago() + " colones"
                     + "\nEntrenador: " + bdClientes[v].getEntrenador());
         } else {
             JOptionPane.showMessageDialog(null, "Nombre Cliente: " + bdClientes[v].getNombreC()
@@ -110,14 +114,14 @@ public class cls_funciones {
                     + "\nSexo Cliente: " + bdClientes[v].getSexo()
                     + "\nEdad Cliente: " + bdClientes[v].getEdad()
                     + "\nTipo de Pase: " + bdClientes[v].getTipoDePase()
-                    + "\nCantidad de Pago: " + bdClientes[v].getPago()+" colones"
+                    + "\nCantidad de Pago: " + bdClientes[v].getPago() + " colones"
                     + "\nEntrenador: " + bdClientes[v].getEntrenador()
                     + "\nSomatotipo del Cliente: " + bdClientes[v].getSomatotipo()
                     + "\nObjetivo del Cliente: " + bdClientes[v].getObjetivo()
-                    + "\nPeso del Cliente: " + bdClientes[v].getPesoKg()+" kg"
-                    + "\nEstatura del Cliente: " + bdClientes[v].getEstaturaMts()+" cm"
-                    + "\nCalorias Diarias: " + bdClientes[v].getCaloriasDiarias()+" kcal"
-                    + "\nCalorias Objetivo: " + bdClientes[v].getCaloriasObjetivo()+" kcal"
+                    + "\nPeso del Cliente: " + bdClientes[v].getPesoKg() + " kg"
+                    + "\nEstatura del Cliente: " + bdClientes[v].getEstaturaMts() + " cm"
+                    + "\nCalorias Diarias: " + bdClientes[v].getCaloriasDiarias() + " kcal"
+                    + "\nCalorias Objetivo: " + bdClientes[v].getCaloriasObjetivo() + " kcal"
                     + "\nIMC del Cliente: " + bdClientes[v].getIMC()
                     + "\nDIAS PARA EJERCITARSE: " + bdClientes[v].rutina.getDiasEjercicio()
                     + "\nDIAS DESCANSO: " + bdClientes[v].rutina.getDiasDescanso()
@@ -126,6 +130,58 @@ public class cls_funciones {
         }
 
         //return imp;
+    }
+
+    public File correo(clsCliente bdClientes[], int v, String pase) {
+        String correo = "";
+
+        File archivo = new File("C:/Users/DellLatE5470/Desktop/WordSpace/Proyecto_GYM/file/informacion.txt");
+
+        if (pase.equals("Basico")) {
+            correo = "Nombre Cliente: " + bdClientes[v].getNombreC()
+                    + "\nIdentificacion Cliente: " + bdClientes[v].getIdentificacion()
+                    + "\nTelefono Cliente: " + bdClientes[v].getTelefono()
+                    + "\nSexo Cliente: " + bdClientes[v].getSexo()
+                    + "\nEdad Cliente: " + bdClientes[v].getEdad()
+                    + "\nTipo de Pase: " + bdClientes[v].getTipoDePase()
+                    + "\nCantidad de Pago: " + bdClientes[v].getPago() + " colones";
+
+        } else if (pase.equals("Max")) {
+            correo = "Nombre Cliente: " + bdClientes[v].getNombreC()
+                    + "\nIdentificacion Cliente: " + bdClientes[v].getIdentificacion()
+                    + "\nTelefono Cliente: " + bdClientes[v].getTelefono()
+                    + "\nSexo Cliente: " + bdClientes[v].getSexo()
+                    + "\nEdad Cliente: " + bdClientes[v].getEdad()
+                    + "\nTipo de Pase: " + bdClientes[v].getTipoDePase()
+                    + "\nCantidad de Pago: " + bdClientes[v].getPago() + " colones"
+                    + "\nEntrenador: " + bdClientes[v].getEntrenador();
+        } else {
+            correo = "Nombre Cliente: " + bdClientes[v].getNombreC()
+                    + "\nIdentificacion Cliente: " + bdClientes[v].getIdentificacion()
+                    + "\nTelefono Cliente: " + bdClientes[v].getTelefono()
+                    + "\nSexo Cliente: " + bdClientes[v].getSexo()
+                    + "\nEdad Cliente: " + bdClientes[v].getEdad()
+                    + "\nTipo de Pase: " + bdClientes[v].getTipoDePase()
+                    + "\nCantidad de Pago: " + bdClientes[v].getPago() + " colones"
+                    + "\nEntrenador: " + bdClientes[v].getEntrenador()
+                    + "\nSomatotipo del Cliente: " + bdClientes[v].getSomatotipo()
+                    + "\nObjetivo del Cliente: " + bdClientes[v].getObjetivo()
+                    + "\nPeso del Cliente: " + bdClientes[v].getPesoKg() + " kg"
+                    + "\nEstatura del Cliente: " + bdClientes[v].getEstaturaMts() + " cm"
+                    + "\nCalorias Diarias: " + bdClientes[v].getCaloriasDiarias() + " kcal"
+                    + "\nCalorias Objetivo: " + bdClientes[v].getCaloriasObjetivo() + " kcal"
+                    + "\nIMC del Cliente: " + bdClientes[v].getIMC()
+                    + "\nDIAS PARA EJERCITARSE: " + bdClientes[v].rutina.getDiasEjercicio()
+                    + "\nDIAS DESCANSO: " + bdClientes[v].rutina.getDiasDescanso()
+                    + "\n-----------------------RUTINA-----------------------------\n"
+                    + bdClientes[v].rutina.getEjercicios();
+        }
+         try ( BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            bw.write(correo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return archivo;
     }
 
     // Metodo  validar cedula
@@ -171,13 +227,13 @@ public class cls_funciones {
     public boolean verificarbdEmpleados(clsEmpleados bd[], String identificacion, int contador) {
         boolean correcto = false;
         if (contador == 0) {
-            correcto=true;
+            correcto = true;
         } else {
             for (int k = 0; k < contador; k++) {
                 if (!identificacion.equals(bd[k].getIdentificacion())) {
-                    correcto=true;
+                    correcto = true;
                 } else {
-                    correcto=false;
+                    correcto = false;
                     break;
                 }
 
@@ -186,16 +242,17 @@ public class cls_funciones {
         return correcto;
 
     }
-        public boolean verificarbdClientes(clsCliente bd[], String identificacion, int contador) {
+
+    public boolean verificarbdClientes(clsCliente bd[], String identificacion, int contador) {
         boolean correcto = false;
         if (contador == 0) {
-            correcto=true;
+            correcto = true;
         } else {
             for (int k = 0; k < contador; k++) {
                 if (!identificacion.equals(bd[k].getIdentificacion())) {
-                    correcto=true;
+                    correcto = true;
                 } else {
-                    correcto=false;
+                    correcto = false;
                     break;
                 }
 
@@ -204,8 +261,7 @@ public class cls_funciones {
         return correcto;
 
     }
-     // Fin de verificar cedulas repeidas
-        // INICIO VERIFICAR TELEFONO
-        
+    // Fin de verificar cedulas repeidas
+    // INICIO VERIFICAR TELEFONO
 
 }//----fin cls_funciones------

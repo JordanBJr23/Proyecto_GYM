@@ -9,13 +9,12 @@ public class main {
 
         JF_inicioSesion JFIS = new JF_inicioSesion();
         JFIS.setVisible(true);
-        System.out.println("dskja");
 
         //---INICIAR DIRECTAMENTE EL PROGRAMA
         //clsM.menuPrincipal();
         //Pruebas calculos--
         //clsCalculos c = new clsCalculos();
-        //float calorias =c.CaloriasDiarias(93, 1.83f, 19,"Masculino");
+        //float calorias =c.CaloriasDiarias(93, 1.83f, 19,"Masc@ulino");
         //System.out.println(calorias);
         //---INCIAR PROGRAMA CON INCIO SESION
 

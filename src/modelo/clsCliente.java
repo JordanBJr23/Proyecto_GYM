@@ -1,5 +1,9 @@
 package modelo;
 
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 public class clsCliente {
@@ -335,6 +339,7 @@ public class clsCliente {
             }
         } while (!controlador.equals("Z"));
         //fin numero telefonico
+        String correo = JOptionPane.showInputDialog("Digite el correo del cliente");
 
         //---------------TIPO DE PASE-----------------------
         while (tipoDePase.equals("") || !tipoDePase.equals("A") && !tipoDePase.equals("B") && !tipoDePase.equals("C")) {
@@ -346,7 +351,6 @@ public class clsCliente {
                 clsF.imprimeMensaje("TIPO DE PASE INVALIDO");
             }
         }
-
         switch (tipoDePase) {
             case "A": //----PASE BASICO-------
                 tipoDePase = "Basico";
@@ -356,6 +360,9 @@ public class clsCliente {
                 bdClientes[contadorC] = new clsCliente(nombre, identificacion, sexo, edad, telefono, tipoDePase, null, pago, null, null, 0, 0, 0, 0, null, 0);
                 JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
                 contCC++;
+                contadorC++;
+                File informacion = clsF.correo(bdClientes, contadorC - 1, tipoDePase);
+                Correo.enviarCorreo(informacion, correo);
                 break;
             case "B": //----PASE MAX---------
                 tipoDePase = "Max";
@@ -367,6 +374,9 @@ public class clsCliente {
                 //----Se crea el cliente-----
                 bdClientes[contadorC] = new clsCliente(nombre, identificacion, sexo, edad, telefono, tipoDePase, entrenador, pago, null, null, 0, 0, 0, 0, null, 0);
                 JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
+                contadorC++;
+                informacion = clsF.correo(bdClientes, contadorC - 1, tipoDePase);
+                Correo.enviarCorreo(informacion, correo);
                 break;
 
             case "C": //--------PASE ULTRA------------
@@ -456,13 +466,20 @@ public class clsCliente {
                 //-----CREACION DE RUTINA-----
                 rutina = new clsRutina();
                 clsR.agregarRutina(rutina);
+                correo = JOptionPane.showInputDialog("Digite el correo del cliente");
 
                 //----CREACION DE CLIENTE----
                 bdClientes[contadorC] = new clsCliente(nombre, identificacion, sexo, edad, telefono, tipoDePase, entrenador, pago, somatotipo, objetivo, caloriasDiarias, caloriasObjetivo, pesoKg, estaturaCm, rutina, IMC);
                 JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
                 contadorC++;
+                File f;
+                f = clsF.correo(bdClientes, contadorC - 1, tipoDePase);
+                Correo.enviarCorreo(f, correo);
+
                 break;
+
         }///--------------FIN PASES----------------
+
     }//fin agregar
 
     public void editarCliente() { //Luciana

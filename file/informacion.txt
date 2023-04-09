@@ -1,0 +1,7 @@
+Nombre Cliente: jirdan
+Identificacion Cliente: 118490205
+Telefono Cliente: 63125137
+Sexo Cliente: Masculino
+Edad Cliente: 20
+Tipo de Pase: Basico
+Cantidad de Pago: 10000.0 colones
