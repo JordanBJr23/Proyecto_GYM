@@ -9,6 +9,7 @@ public class main {
 
         JF_inicioSesion JFIS = new JF_inicioSesion();
         JFIS.setVisible(true);
+        System.out.println("dskja");
 
         //---INICIAR DIRECTAMENTE EL PROGRAMA
         //clsM.menuPrincipal();
