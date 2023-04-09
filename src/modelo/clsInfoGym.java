@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author XPC
- */
 public class clsInfoGym {
 
     //----------Se crea la clase pública para la informaciónd el gimnacio--------------//
