@@ -1,6 +1,5 @@
 package modelo;
 
-import java.awt.TextArea;
 import javax.swing.JOptionPane;
 
 public class clsCliente {
